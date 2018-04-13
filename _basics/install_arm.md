@@ -78,7 +78,7 @@ Be sure that your board is connected and its volume is visible in the file brows
 
 3. If the serial device is properly connected, it will appear in the **Port** list under the **Serial** tab.
 
-For a "Logical" drive (e.g., Re-Arm and most 32-bit boards) click on the **Logical** tab to list all devices. You should see the `rearm` SD card and possibly some other mounted volumes.
+For a "Logical" drive (e.g., Re-Arm and most 32-bit boards) click on the **Logical** tab to list all devices. You should see the `rearm` SD card and possibly some other mounted volumes. The D: or E: is the part you need
 
 4. Once you've identified the correct Serial port or Logical drive, click on the little blue page icon next to the item you want to use. This will copy its path to the clipboard. We recommend pasting the path into a new text file (`Ctrl-N` or `Cmd-N`) for later use.
 
@@ -86,7 +86,7 @@ For a "Logical" drive (e.g., Re-Arm and most 32-bit boards) click on the **Logic
 
 This part is optional, but it makes it easier to build for Re-Arm going forward. If you prefer to skip this section, scroll down to the next step, [Prepare Configuration](#prepare-configurationh).
 
-1. Under project on the left, find the `platform.ini` file and click on it to open it in the editor. Find the line starting with `env_default` and change the line to:
+1. Under project on the left, find the `platformio.ini` file and click on it to open it in the editor. Find the line starting with `env_default` and change the line to:
 
     ```ini
     env_default = LPC1768
@@ -95,7 +95,9 @@ This part is optional, but it makes it easier to build for Re-Arm going forward.
 2. In `platform.ini` locate the section that starts with `[env:LPC1768]`. Anywhere within this block of lines, insert the following line:
 
     ```ini
-    upload_port = /Volumes/REARM
+    e.g upload_port = /Volumes/REARM
+    e.g upload_port = D:\
+    e.g upload_port = E:\
     ```
   (Assuming you've named the SD card "`rearm`".)
 
@@ -103,7 +105,7 @@ This part is optional, but it makes it easier to build for Re-Arm going forward.
 
 ### For other boards…
 
-1. Under project on the left, find the `platform.ini` file and click on it to open it in the editor. Find the line starting with `env_default` and change the line to:
+1. Under project on the left, find the `platformio.ini` file and click on it to open it in the editor. Find the line starting with `env_default` and change the line to:
 
     ```ini
     env_default = name-of-your-env
